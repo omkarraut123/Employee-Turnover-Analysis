@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Turnover Analysis</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body style="background-color:rgb(0, 124, 155)">
+ <div class="login" style="color:black">
+	<h1 style="text-align:center">Employee Turnover Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="satisfaction_level" placeholder="satisfaction_level" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="last_evaluation" placeholder="last_evaluation" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="number_project" placeholder="number_project " required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="average_montly_hours" placeholder="average_montly_hours" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="time_spend_company" placeholder="time_spend_company" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="Work_accident" placeholder="Work_accident" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="promotion_last_5years" placeholder="promotion_last_5years" required="required" /> </br> </br>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<select name="department" id="research" required="required">
+        <option value="Department">Department</option>
+        <option value="sales">sales</option>
+        <option value="accounting">accounting</option>
+        <option value="hr">hr</option>
+        <option value="technical">technical</option>
+        <option value="support">support</option>
+        <option value="management">management</option>
+        <option value="IT">IT</option>
+        <option value="product_mng">product_mng</option>
+        <option value="marketing">marketing</option>
+          </select><br/><br/>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<select name="salary" id="salary" required="required">
+        <option value="low">salary</option>
+        <option value="low">low</option>
+        <option value="medium">medium</option>
+        <option value="high">high</option>
+    </select> </br> </br>
+
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  <h3 style="text-align:center">{{ prediction_text }}</h3> 
+
+ </div>
+
+
+</body>
+</html>
